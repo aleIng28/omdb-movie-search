@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/744/744922.png"
+      type="image/png"
+    />
+
+    <title>CineFilm</title>
+  </head>
+  <body>
+    <h1>CineFilm</h1>
+    <input
+      type="text"
+      id="input-busqueda"
+      placeholder="Ingrese pelicula deseada"
+    />
+    <button>Buscar</button>
+    <div id="contenedor-peliculas"></div>
+
+    <div id="modal-detalles" class="modal">
+      <div class="contenido-modal">
+        <span id="cerrar-modal">&times;</span>
+        <div id="detalles-peli"></div>
+      </div>
+    </div>
+
+    <script src="script/config.js"></script>
+    <script src="script/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,288 @@
+/* RESET + VARIABLES*/
+:root {
+  --bg-main: #0b1913;
+  --card-bg: #141a2a;
+  --accent: #e50914;
+  --text-main: #ffffff;
+  --text-muted: #b5b5b5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/*BODY*/
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a2340, #0b0f19 70%);
+  color: var(--text-main);
+  padding: 30px;
+}
+
+/* TITULO */
+h1 {
+  text-align: center;
+  font-size: 3.7rem;
+  margin-bottom: 30px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  font-family: "Bebas Neue", sans-serif;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* BUSCADOR */
+input {
+  display: block;
+  margin: 0 auto 15px;
+  width: 100%;
+  max-width: 420px;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 35px;
+  border-radius: 30px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.5);
+}
+
+/*CONTENEDOR  */
+#contenedor-peliculas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 45px;
+}
+
+/* TARJETA DE PELÍCULA*/
+.pelicula {
+  width: 220px;
+  background: var(--card-bg);
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  animation: fadeUp 0.6s ease forwards;
+  opacity: 0;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.pelicula:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.5);
+}
+
+/*IMAGEN*/
+.pelicula img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pelicula:hover img {
+  transform: scale(1.1);
+}
+
+/* INFO*/
+.pelicula-info {
+  padding: 15px;
+}
+
+.pelicula-info h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pelicula-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  height: 60px;
+  overflow: hidden;
+}
+
+/* ANIMACIONES*/
+@keyframes fadeUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* MODAL DETALLES */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+/* Contenedor del modal */
+.contenido-modal {
+  background-color: var(--card-bg);
+  margin: 5% auto;
+  padding: 25px;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 20px;
+  color: #fff;
+  position: relative;
+  animation: modalFade 0.4s ease;
+}
+
+/* Botón cerrar */
+#cerrar-modal {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+#cerrar-modal:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/*  CONTENIDO PELÍCULA */
+.modal-peli {
+  display: flex;
+  gap: 20px;
+}
+
+/* Poster */
+.poster {
+  width: 160px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Info */
+.info {
+  flex: 1;
+}
+
+.info h2 {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+}
+
+/* Meta info (rating + premios) */
+.meta {
+  display: flex;
+  gap: 20px;
+  margin: 12px 0 20px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.meta span {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* Bloques de texto */
+.bloque {
+  margin-bottom: 16px;
+}
+
+.bloque h4 {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: #f5c518;
+  text-transform: uppercase;
+}
+
+.bloque p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+/* Scroll  */
+.bloque p {
+  max-height: 110px;
+  overflow-y: auto;
+}
+
+/* ANIMACIÓN*/
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*  RESPONSIVE */
+@media (max-width: 600px) {
+  .modal-peli {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .poster {
+    width: 200px;
+  }
+
+  .meta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .bloque p {
+    max-height: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .pelicula {
+    width: 160px;
+  }
+
+  .pelicula img {
+    height: 240px;
+  }
+}
