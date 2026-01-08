@@ -238,8 +238,17 @@ button:hover {
 }
 
 /* Scroll  */
-.bloque p {
-  max-height: 110px;
+.contenido-modal {
+  background-color: var(--card-bg);
+  margin: 5% auto;
+  padding: 25px;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 20px;
+  color: #fff;
+  position: relative;
+  animation: modalFade 0.4s ease;
+  max-height: 85vh;
   overflow-y: auto;
 }
 
@@ -286,3 +295,4 @@ button:hover {
     height: 240px;
   }
 }
+
